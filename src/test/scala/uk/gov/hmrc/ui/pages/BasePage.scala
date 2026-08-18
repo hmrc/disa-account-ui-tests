@@ -30,15 +30,13 @@ import scala.jdk.CollectionConverters.CollectionHasAsScala
 trait BasePage extends Matchers with PageObject {
 
   val pageUrl: String
-  val baseUrl: String                        = TestConfiguration.url("disa-account-frontend")
-  val signInButtonClassName: By              = By.partialLinkText("Sign in")
-  val generateRandomZReference: () => String = () => ZReferenceGenerator.generate()
-  val saveAndContinueButton: By              = By.xpath("//button[contains(text(),'Save and continue')]")
-  val continueButton: By                     = By.xpath("//a[contains(text(),'Continue')]")
-  val signOutButton: By                      = By.xpath("//a[contains(text(),'Sign out')]")
-  val pageHeader: By                         = By.xpath("//h1")
-  val confirmAndSaveButton: By               = By.xpath("//button[contains(text(),'Confirm and save')]")
-  val confirmAndSaveButtonForOrgDetails: By  =
+  val baseUrl: String                       = TestConfiguration.url("disa-account-frontend")
+  val signInButtonClassName: By             = By.partialLinkText("Sign in")
+  val continueButton: By                    = By.xpath("//a[contains(text(),'Continue')]")
+  val signOutButton: By                     = By.xpath("//a[contains(text(),'Sign out')]")
+  val pageHeader: By                        = By.xpath("//h1")
+  val confirmAndSaveButton: By              = By.xpath("//button[contains(text(),'Confirm and save')]")
+  val confirmAndSaveButtonForOrgDetails: By =
     By.cssSelector("a.govuk-button[href='/obligations/enrolment/isa/task-list']")
 
   def taskStatusLocator(taskName: String): By =
@@ -109,9 +107,6 @@ trait BasePage extends Matchers with PageObject {
   def isElementPresent(locator: By): Boolean =
     Driver.instance.findElements(locator).size() > 0
 
-  def clickSaveAndContinue(): Unit =
-    click(saveAndContinueButton)
-
   def clickConfirmAndSave(): Unit =
     click(confirmAndSaveButton)
 
@@ -126,21 +121,4 @@ trait BasePage extends Matchers with PageObject {
 
   def generate7DigitString(): String =
     f"${Random.nextInt(10000000)}%07d"
-}
-
-object ZReferenceGenerator {
-  private val usedRefs = scala.collection.mutable.Set[String]()
-  private val random   = new scala.util.Random()
-  private val badRefs  = Set("1400", "1500", "1503")
-
-  def generate(): String = {
-    val ref =
-      Iterator
-        .continually(f"${random.nextInt(9999)}%04d")
-        .find(r => !usedRefs.contains(r) && !badRefs.contains(r))
-        .get
-
-    usedRefs += ref
-    s"Z$ref"
-  }
 }

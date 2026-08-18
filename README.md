@@ -2,7 +2,7 @@
 
 # disa-account-ui-tests
 
-disa-registration-frontend UI journey tests.
+disa-account-frontend UI journey tests.
 
 ## Pre-requisites
 
