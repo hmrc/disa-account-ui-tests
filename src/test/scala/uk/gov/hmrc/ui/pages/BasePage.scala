@@ -32,7 +32,7 @@ trait BasePage extends Matchers with PageObject {
   val pageUrl: String
   val baseUrl: String                       = TestConfiguration.url("disa-account-frontend")
   val signInButtonClassName: By             = By.partialLinkText("Sign in")
-  val continueButton: By                    = By.xpath("//a[contains(text(),'Continue')]")
+  val continueButton: By                    = By.xpath("//*[contains(text(),'Continue')]")
   val signOutButton: By                     = By.xpath("//a[contains(text(),'Sign out')]")
   val pageHeader: By                        = By.xpath("//h1")
   val confirmAndSaveButton: By              = By.xpath("//button[contains(text(),'Confirm and save')]")
