@@ -16,6 +16,109 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
+import org.openqa.selenium.{By, WebDriver}
+import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.selenium.component.PageObject
+import uk.gov.hmrc.selenium.webdriver.Driver
+import uk.gov.hmrc.ui.conf.TestConfiguration
 
-trait BasePage extends PageObject {}
+import java.time.Duration
+import scala.util.Random
+import scala.jdk.CollectionConverters.CollectionHasAsScala
+
+trait BasePage extends Matchers with PageObject {
+
+  val pageUrl: String
+  val baseUrl: String                       = TestConfiguration.url("disa-account-frontend")
+  val signInButtonClassName: By             = By.partialLinkText("Sign in")
+  val continueButton: By                    = By.xpath("//a[contains(text(),'Continue')]")
+  val signOutButton: By                     = By.xpath("//a[contains(text(),'Sign out')]")
+  val pageHeader: By                        = By.xpath("//h1")
+  val confirmAndSaveButton: By              = By.xpath("//button[contains(text(),'Confirm and save')]")
+  val confirmAndSaveButtonForOrgDetails: By =
+    By.cssSelector("a.govuk-button[href='/obligations/enrolment/isa/task-list']")
+
+  def taskStatusLocator(taskName: String): By =
+    By.xpath(s"//li[.//a[normalize-space(text())='$taskName']]//div[contains(@class, 'govuk-task-list__status')]")
+
+  def verifyPageUrl(): Boolean =
+    getCurrentUrl == pageUrl
+
+  def verifyPageTitle(pageTitle: String, url: String): Boolean = {
+    verifyPageLoadedId(url)
+    val actualTitle = getTitle
+    if (actualTitle != pageTitle) {
+      println(s"[Title Mismatch] Expected: '$pageTitle' | Actual: '$actualTitle'")
+      false
+    } else {
+      true
+    }
+  }
+
+  def verifyPageLoadedWithHeader(pageHeaderText: String, url: String): Boolean = {
+    verifyPageLoaded(url)
+    val actualHeader = getText(pageHeader)
+    if (actualHeader != pageHeaderText) {
+      println(s"[Header Mismatch] Expected: '$pageHeaderText' | Actual: '$actualHeader'")
+      false
+    } else {
+      true
+    }
+  }
+
+  def verifyTaskStatus(taskName: String, expectedStatus: String): Unit = {
+    val actualStatus = getText(taskStatusLocator(taskName))
+    actualStatus should include(expectedStatus)
+  }
+
+  private def fluentWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
+    .withTimeout(Duration.ofSeconds(2))
+    .pollingEvery(Duration.ofMillis(200))
+
+  def verifyPageLoaded(url: String = this.pageUrl): Unit = fluentWait.until(ExpectedConditions.urlToBe(url))
+
+  def navigateTo(url: String): Unit = {
+    Driver.instance.get(url)
+    verifyPageLoaded(url)
+  }
+
+  def verifyPageLoadedId(url: String = this.pageUrl): Unit = fluentWait.until(ExpectedConditions.urlMatches(url))
+
+  def goTo(page: BasePage): Unit = navigateTo(page.pageUrl)
+
+  def enterText(id: String, textToEnter: String): Unit =
+    sendKeys(By.id(id), textToEnter)
+
+  def clickOnByPartialLinkText(partialLinkText: String): Unit =
+    click(By.partialLinkText(partialLinkText))
+
+  def clickOnLinks(button: String): Unit = {
+    val locator = By.xpath(s"//*[contains(@href, '$button')]")
+    click(locator)
+  }
+
+  def clickSubmit(): Unit =
+    Driver.instance.findElement(By.id("submit-top")).click()
+
+  def clickRadioButton(text: String): Unit =
+    Driver.instance.findElements(By.tagName("label")).asScala.filter(_.getText.trim == text).head.click()
+
+  def isElementPresent(locator: By): Boolean =
+    Driver.instance.findElements(locator).size() > 0
+
+  def clickConfirmAndSave(): Unit =
+    click(confirmAndSaveButton)
+
+  def clickConfirmAndSaveForCheckOrgDetails(): Unit =
+    click(confirmAndSaveButtonForOrgDetails)
+
+  def clickContinue(): Unit =
+    click(continueButton)
+
+  def signOut(): Unit =
+    click(signOutButton)
+
+  def generate7DigitString(): String =
+    f"${Random.nextInt(10000000)}%07d"
+}
