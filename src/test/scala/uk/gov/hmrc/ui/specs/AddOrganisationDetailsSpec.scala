@@ -23,13 +23,26 @@ class AddOrganisationDetailsSpec extends BaseSpec {
   Feature("Enrolled user logs and add organisation details") {
 
     Scenario("1.Enrolled user logs and add organisation details") {
-      Given("the ISA manager logs in as an already enrolled organisation User")
+      Given(" ISA manager logs in as an already enrolled organisation User")
       AuthLoginPage.loginAsEnrolledUser("/enter-your-organisation-address", "HMRC-DISA-ORG", "ZREF", "Z1234")
 
       Then("Enter your organisation’s address page is displayed")
       EnterYourOrganisationAddressPage.verifyPageTitle(
         EnterYourOrganisationAddressPage.pageTitle,
         EnterYourOrganisationAddressPage.pageUrl
+      ) shouldBe true
+
+      When("User enters the address details and click on 'Continue' button")
+      EnterYourOrganisationAddressPage.enterText("addressLine1", "Test address line 1")
+      EnterYourOrganisationAddressPage.enterText("addressLine2", "Test address line 2")
+      EnterYourOrganisationAddressPage.enterText("townOrCity", "London")
+      EnterYourOrganisationAddressPage.enterText("postcode", "AA1 1AA")
+      EnterYourOrganisationAddressPage.clickContinue()
+
+      Then("What is the telephone number of your organisation?’s address page is displayed")
+      OrganisationTelephoneNumberPage.verifyPageTitle(
+        OrganisationTelephoneNumberPage.pageTitle,
+        OrganisationTelephoneNumberPage.pageUrl
       ) shouldBe true
 
     }
