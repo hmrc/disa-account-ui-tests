@@ -18,6 +18,7 @@ package uk.gov.hmrc.ui.pages
 
 object OrganisationEmailVerificationCodePage extends BasePage {
   val pageUrl: String   = s"$baseUrl/email-verification-code"
-  val pageTitle: String = "Enter the code to confirm your organisation email - Organisation email - Manage ISAs - GOV.UK"
+  val pageTitle: String =
+    "Enter the code to confirm your organisation email - Organisation email - Manage ISAs - GOV.UK"
 
 }

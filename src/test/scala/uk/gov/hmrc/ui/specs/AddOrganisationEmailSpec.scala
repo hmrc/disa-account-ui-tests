@@ -33,7 +33,6 @@ class AddOrganisationEmailSpec extends BaseSpec {
         OrganisationEmailPage.pageUrl
       ) shouldBe true
 
-
       Then("the user is navigated to the 'Organisation email address' page")
       OrganisationEmailPage.verifyPageTitle(
         OrganisationEmailPage.pageTitle,
@@ -53,7 +52,6 @@ class AddOrganisationEmailSpec extends BaseSpec {
       Then("the user enters the code and clicks on Save and continue button")
       OrganisationEmailVerificationCodePage.enterText("value", "ABCDEF")
       OrganisationEmailVerificationCodePage.clickContinue()
-
 
     }
 
