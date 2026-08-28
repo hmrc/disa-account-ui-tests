@@ -18,7 +18,6 @@ package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.By
 
-
 object FcaArticlesPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/fca-articles"
   val pageTitle: String =
