@@ -16,8 +16,9 @@
 
 package uk.gov.hmrc.ui.pages
 
-object EnterYourOrganisationAddressPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/enter-your-organisation-address"
-  val pageTitle: String = "Enter your organisation’s address - Manage ISAs - GOV.UK"
+object SignatoryJobTitlePage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/signatory-job-title"
+  val pageTitle: String =
+    "What is the job title of Signatory One within the organisation? - Manage ISAs - GOV.UK"
 
 }

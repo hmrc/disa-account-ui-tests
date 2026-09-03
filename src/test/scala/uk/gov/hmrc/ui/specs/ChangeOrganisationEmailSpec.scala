@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.specs
 
 import uk.gov.hmrc.ui.pages.*
 
-class AddOrganisationEmailSpec extends BaseSpec {
+class ChangeOrganisationEmailSpec extends BaseSpec {
 
   Feature("Add an organisation") {
 
