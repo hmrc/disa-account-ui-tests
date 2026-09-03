@@ -18,6 +18,6 @@ package uk.gov.hmrc.ui.pages
 
 object OrganisationEmailPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/organisation-email-address"
-  val pageTitle: String = "What is the email address of your organisation? - Organisation email - Manage ISAs - GOV.UK"
+  val pageTitle: String = "What is the email address of your organisation? - Manage ISAs - GOV.UK"
 
 }

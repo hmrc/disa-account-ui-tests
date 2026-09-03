@@ -18,7 +18,7 @@ package uk.gov.hmrc.ui.specs
 
 import uk.gov.hmrc.ui.pages.*
 
-class AddOrganisationDetailsSpec extends BaseSpec {
+class ChangeOrganisationDetailsSpec extends BaseSpec {
 
   Feature("Enrolled user logs and add organisation details") {
 

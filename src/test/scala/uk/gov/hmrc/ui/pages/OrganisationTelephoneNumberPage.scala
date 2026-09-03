@@ -19,6 +19,6 @@ package uk.gov.hmrc.ui.pages
 object OrganisationTelephoneNumberPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/organisation-telephone-number"
   val pageTitle: String =
-    "What is the telephone number of your organisation? - Organisation details - Manage ISAs - GOV.UK"
+    "What is the telephone number of your organisation? - Manage ISAs - GOV.UK"
 
 }
