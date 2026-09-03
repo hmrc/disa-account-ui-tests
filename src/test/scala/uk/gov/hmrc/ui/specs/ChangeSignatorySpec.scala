@@ -27,7 +27,6 @@ class ChangeSignatorySpec extends BaseSpec {
       Given(" ISA manager logs in as an already enrolled organisation User")
       AuthLoginPage.loginAsEnrolledUser("/signatory-name?id=signatory-test-id-1", "HMRC-DISA-ORG", "ZREF", "Z1234")
 
-
       Then("the user is navigated to the 'signatory-name' page")
       SignatoryNamePage.verifyPageTitle(SignatoryNamePage.pageTitle, SignatoryNamePage.pageUrl) shouldBe true
 
