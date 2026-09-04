@@ -17,9 +17,8 @@
 package uk.gov.hmrc.ui.pages
 
 object SignatoriesAddedPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/added-signatories"
-  val pageTitle: String ="You currently have a signatory - Manage ISAs - GOV.UK"
+  val pageUrl: String      = s"$baseUrl/added-signatories"
+  val pageTitle: String    = "You currently have a signatory - Manage ISAs - GOV.UK"
   val pageTitleTwo: String = "You have 2 signatories - Manage ISAs - GOV.UK"
-
 
 }
