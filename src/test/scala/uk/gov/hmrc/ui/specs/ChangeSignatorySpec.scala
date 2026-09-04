@@ -30,7 +30,7 @@ class ChangeSignatorySpec extends BaseSpec {
       Then("the user is navigated to the 'signatory-name' page")
       SignatoryNamePage.verifyPageTitle(SignatoryNamePage.pageTitle, SignatoryNamePage.pageUrl) shouldBe true
 
-      When("the user enters the full name and clicks on Save and continue button")
+      When("the user enters the full name and clicks on continue button")
       SignatoryNamePage.enterText("value", "Signatory One")
       SignatoryNamePage.clickContinue()
 
@@ -40,7 +40,7 @@ class ChangeSignatorySpec extends BaseSpec {
         SignatoryJobTitlePage.pageUrl
       ) shouldBe true
 
-      When("the user enters the JobTitle value and clicks on Save and continue button")
+      When("the user enters the JobTitle value and clicks on continue button")
       SignatoryJobTitlePage.enterText("value", "QA")
       SignatoryJobTitlePage.clickContinue()
 
@@ -48,6 +48,15 @@ class ChangeSignatorySpec extends BaseSpec {
       SignatoryCheckDetailsPage.verifyPageTitle(
         SignatoryCheckDetailsPage.pageTitle,
         SignatoryCheckDetailsPage.pageUrl
+      ) shouldBe true
+
+      When("the user clicks on continue button")
+      SignatoryCheckDetailsPage.clickContinue()
+
+      Then("the user is navigated to the 'signatories added' page")
+      SignatoriesAddedPage.verifyPageTitle(
+        SignatoriesAddedPage.pageTitleTwo,
+        SignatoriesAddedPage.pageUrl
       ) shouldBe true
 
     }

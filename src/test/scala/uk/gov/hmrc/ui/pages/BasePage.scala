@@ -94,7 +94,7 @@ trait BasePage extends Matchers with PageObject {
     click(By.partialLinkText(partialLinkText))
 
   def clickOnLinks(button: String): Unit = {
-    val locator = By.xpath(s"//*[contains(@href, '$button')]")
+    val locator = By.xpath("*//*[contains(@href, '$button')]")
     click(locator)
   }
 
