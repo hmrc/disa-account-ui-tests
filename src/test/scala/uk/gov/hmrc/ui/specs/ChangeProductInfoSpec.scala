@@ -25,13 +25,19 @@ class ChangeProductInfoSpec extends BaseSpec {
     Scenario("1.Verify user can access and update products details") {
 
       Given(" ISA manager logs in as an already enrolled organisation User")
-      AuthLoginPage.loginAsEnrolledUser("/change-information","signatory@example.com","HMRC-DISA-ORG", "ZREF", "Z1234")
-
+      AuthLoginPage.loginAsEnrolledUser(
+        "/change-information",
+        "signatory@example.com",
+        "HMRC-DISA-ORG",
+        "ZREF",
+        "Z1234"
+      )
 
       Then("the user is navigated to the 'signatory-name' page")
-      ChangeInformationPage.verifyPageTitle(ChangeInformationPage.pageTitle, ChangeInformationPage.pageUrl) shouldBe true
-
-
+      ChangeInformationPage.verifyPageTitle(
+        ChangeInformationPage.pageTitle,
+        ChangeInformationPage.pageUrl
+      ) shouldBe true
 
     }
 
