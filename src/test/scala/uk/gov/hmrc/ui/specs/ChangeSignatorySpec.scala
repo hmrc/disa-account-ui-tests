@@ -25,7 +25,13 @@ class ChangeSignatorySpec extends BaseSpec {
     Scenario("1.Verify user can access Add a signatory and edit the name and title") {
 
       Given(" ISA manager logs in as an already enrolled organisation User")
-      AuthLoginPage.loginAsEnrolledUser("/signatory-name?id=signatory-test-id-1", "HMRC-DISA-ORG", "ZREF", "Z1234")
+      AuthLoginPage.loginAsEnrolledUser(
+        "/signatory-name?id=signatory-test-id-1",
+        "signatory@example.com",
+        "HMRC-DISA-ORG",
+        "ZREF",
+        "Z1234"
+      )
 
       Then("the user is navigated to the 'signatory-name' page")
       SignatoryNamePage.verifyPageTitle(SignatoryNamePage.pageTitle, SignatoryNamePage.pageUrl) shouldBe true

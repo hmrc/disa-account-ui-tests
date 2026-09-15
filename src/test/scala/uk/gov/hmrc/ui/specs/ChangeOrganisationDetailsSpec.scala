@@ -24,7 +24,13 @@ class ChangeOrganisationDetailsSpec extends BaseSpec {
 
     Scenario("1.Enrolled user logs and add organisation details") {
       Given(" ISA manager logs in as an already enrolled organisation User")
-      AuthLoginPage.loginAsEnrolledUser("/enter-your-organisation-address", "HMRC-DISA-ORG", "ZREF", "Z1234")
+      AuthLoginPage.loginAsEnrolledUser(
+        "/enter-your-organisation-address",
+        "signatory@example.com",
+        "HMRC-DISA-ORG",
+        "ZREF",
+        "Z1234"
+      )
 
       Then("Enter your organisation’s address page is displayed")
       EnterYourOrganisationAddressPage.verifyPageTitle(
