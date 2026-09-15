@@ -25,7 +25,13 @@ class ChangeOrganisationEmailSpec extends BaseSpec {
     Scenario("1.Verify user can change email information for an organisation") {
 
       Given(" ISA manager logs in as an already enrolled organisation User")
-      AuthLoginPage.loginAsEnrolledUser("/organisation-email-address", "HMRC-DISA-ORG", "ZREF", "Z1234")
+      AuthLoginPage.loginAsEnrolledUser(
+        "/organisation-email-address",
+        "signatory@example.com",
+        "HMRC-DISA-ORG",
+        "ZREF",
+        "Z1234"
+      )
 
       Then("Enter your organisation’s address page is displayed")
       OrganisationEmailPage.verifyPageTitle(

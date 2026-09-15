@@ -45,6 +45,7 @@ object AuthLoginPage extends BasePage {
 
   private def submitAuthWithEnrollmentInfo(
     redirectionUrl: String,
+    email: String,
     enrolmentKey: String,
     IdentifierName: String,
     IdentifierValue: String
@@ -52,6 +53,7 @@ object AuthLoginPage extends BasePage {
     loadPage
     sendKeys(redirectionUrlById, s"$baseUrl$redirectionUrl")
     selectByVisibleText(affinityGroupById, "Organisation")
+    sendKeys(By.id("email"), email)
     sendKeys(By.id("enrolment[0].name"), enrolmentKey)
     sendKeys(By.id("input-0-0-name"), IdentifierName)
     sendKeys(By.id("input-0-0-value"), IdentifierValue)
@@ -81,11 +83,12 @@ object AuthLoginPage extends BasePage {
 
   def loginAsEnrolledUser(
     redirectionUrl: String,
+    email: String,
     enrolmentKey: String,
     IdentifierName: String,
     IdentifierValue: String
   ): Unit =
-    submitAuthWithEnrollmentInfo(redirectionUrl, enrolmentKey, IdentifierName, IdentifierValue)
+    submitAuthWithEnrollmentInfo(redirectionUrl, email, enrolmentKey, IdentifierName, IdentifierValue)
 
   def loginAsPendingEnrollmentUser(redirectionUrl: String, groupId: String): Unit =
     submitAuthWithGroupId(redirectionUrl, groupId)
