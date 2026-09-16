@@ -23,5 +23,4 @@ object FcaPlatformNumberPage extends BasePage {
   val pageTitle: String =
     "What is the FCA, FRN of plat one? - Manage ISAs - GOV.UK"
 
-
 }
