@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,15 @@
 
 package uk.gov.hmrc.ui.pages
 
-object LiaisonOfficerPhoneNumberlPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/liaison-officer-email"
-  val pageTitle: String =
-    "What is Liaison One's phone number? - Manage ISAs - GOV.UK"
+
+
+object AddedLiaisonOfficersPage extends BasePage {
+  val pageUrl: String      = s"$baseUrl/added-liaison-officers"
+  val pageTitle: String    = "You currently have a liaison officer - Manage ISAs - GOV.UK"
+  val pageTitleTwo: String = "You have 2 liaison officers - Manage ISAs - GOV.UK"
+
+
+  def pageTitleForMultipleOfficers(officerCount: String): String =
+    s"You have added $officerCount liaison officer - Liaison officers - Manage ISAs - GOV.UK"
+
 }

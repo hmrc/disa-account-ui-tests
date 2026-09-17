@@ -93,12 +93,15 @@ trait BasePage extends Matchers with PageObject {
   def clickOnByPartialLinkText(partialLinkText: String): Unit =
     click(By.partialLinkText(partialLinkText))
 
-  def clickOnLinks(button: String): Unit = {
+  def clickOnLinks(button: String): Unit  = {
     val locator = By.xpath("*//*[contains(@href, '$button')]")
     click(locator)
   }
-
-  def clickSubmit(): Unit =
+  def clicksOnLinks(button: String): Unit = {
+    val locator = By.xpath(s"//*[contains(@href, '$button')]")
+    click(locator)
+  }
+  def clickSubmit(): Unit                 =
     Driver.instance.findElement(By.id("submit-top")).click()
 
   def clickRadioButton(text: String): Unit =

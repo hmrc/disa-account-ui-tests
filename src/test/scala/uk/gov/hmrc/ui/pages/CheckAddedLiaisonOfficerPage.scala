@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,19 +15,11 @@
  */
 
 package uk.gov.hmrc.ui.pages
-import org.openqa.selenium.By
 
-object LiaisonOfficerCommunicationPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/liaison-officer-communication"
+
+
+object CheckAddedLiaisonOfficerPage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/check-added-liaison-officer"
   val pageTitle: String =
-    "How should we communicate with Liaison One? - Manage ISAs - GOV.UK"
-  val byEmail: By       = By.id("value_0")
-  val byPhone: By       = By.id("value_1")
-  val byPost: By        = By.id("value_2")
-
-  def selectCommunicationModes(): Unit = {
-    selectCheckbox(byEmail)
-    selectCheckbox(byPhone)
-    selectCheckbox(byPost)
-  }
+    "Check liaison officer details - Manage ISAs - GOV.UK"
 }
