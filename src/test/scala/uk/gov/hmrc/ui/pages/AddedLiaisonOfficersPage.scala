@@ -16,13 +16,10 @@
 
 package uk.gov.hmrc.ui.pages
 
-
-
 object AddedLiaisonOfficersPage extends BasePage {
   val pageUrl: String      = s"$baseUrl/added-liaison-officers"
   val pageTitle: String    = "You currently have a liaison officer - Manage ISAs - GOV.UK"
   val pageTitleTwo: String = "You have 2 liaison officers - Manage ISAs - GOV.UK"
-
 
   def pageTitleForMultipleOfficers(officerCount: String): String =
     s"You have added $officerCount liaison officer - Liaison officers - Manage ISAs - GOV.UK"

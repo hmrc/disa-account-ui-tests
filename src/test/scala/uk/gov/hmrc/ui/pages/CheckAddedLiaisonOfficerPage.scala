@@ -16,8 +16,6 @@
 
 package uk.gov.hmrc.ui.pages
 
-
-
 object CheckAddedLiaisonOfficerPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/check-added-liaison-officer"
   val pageTitle: String =
