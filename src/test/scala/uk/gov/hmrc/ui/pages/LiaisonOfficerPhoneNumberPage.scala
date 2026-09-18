@@ -15,19 +15,9 @@
  */
 
 package uk.gov.hmrc.ui.pages
-import org.openqa.selenium.By
 
-object LiaisonOfficerCommunicationPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/liaison-officer-communication"
+object LiaisonOfficerPhoneNumberPage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/liaison-officer-phone-number"
   val pageTitle: String =
-    "How should we communicate with Liaison One? - Manage ISAs - GOV.UK"
-  val byEmail: By       = By.id("value_0")
-  val byPhone: By       = By.id("value_1")
-  val byPost: By        = By.id("value_2")
-
-  def selectCommunicationModes(): Unit = {
-    selectCheckbox(byEmail)
-    selectCheckbox(byPhone)
-    selectCheckbox(byPost)
-  }
+    "What is Liaison One’s phone number? - Manage ISAs - GOV.UK"
 }

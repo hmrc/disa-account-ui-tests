@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,8 @@
 
 package uk.gov.hmrc.ui.pages
 
-object LiaisonOfficerPhoneNumberlPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/liaison-officer-email"
+object RemoveLiaisonOfficerPage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/remove-liaison-officer"
   val pageTitle: String =
-    "What is Liaison One's phone number? - Manage ISAs - GOV.UK"
+    "Are you sure you want to remove {0} as a liaison officer? - Test Officer - Manage ISAs - GOV.UK"
 }

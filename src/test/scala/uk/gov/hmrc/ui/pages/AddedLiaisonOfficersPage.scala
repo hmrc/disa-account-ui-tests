@@ -1,5 +1,5 @@
 /*
- * Copyright 2025 HM Revenue & Customs
+ * Copyright 2026 HM Revenue & Customs
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,19 +15,13 @@
  */
 
 package uk.gov.hmrc.ui.pages
-import org.openqa.selenium.By
 
-object LiaisonOfficerCommunicationPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/liaison-officer-communication"
-  val pageTitle: String =
-    "How should we communicate with Liaison One? - Manage ISAs - GOV.UK"
-  val byEmail: By       = By.id("value_0")
-  val byPhone: By       = By.id("value_1")
-  val byPost: By        = By.id("value_2")
+object AddedLiaisonOfficersPage extends BasePage {
+  val pageUrl: String      = s"$baseUrl/added-liaison-officers"
+  val pageTitle: String    = "You currently have a liaison officer - Manage ISAs - GOV.UK"
+  val pageTitleTwo: String = "You have 2 liaison officers - Manage ISAs - GOV.UK"
 
-  def selectCommunicationModes(): Unit = {
-    selectCheckbox(byEmail)
-    selectCheckbox(byPhone)
-    selectCheckbox(byPost)
-  }
+  def pageTitleForMultipleOfficers(officerCount: String): String =
+    s"You have added $officerCount liaison officer - Liaison officers - Manage ISAs - GOV.UK"
+
 }
