@@ -17,10 +17,10 @@
 package uk.gov.hmrc.ui.pages
 
 object DeclarationForChangesPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/declaration-for-changes"
-  val pageTitle: String =
+  val pageUrl: String      = s"$baseUrl/declaration-for-changes"
+  val pageTitle: String    =
     "Declaration for changes, including ISA products - Manage ISAs - GOV.UK"
   val pageTitleTwo: String =
-      "Declaration for changes - Manage ISAs - GOV.UK"
+    "Declaration for changes - Manage ISAs - GOV.UK"
 
 }
