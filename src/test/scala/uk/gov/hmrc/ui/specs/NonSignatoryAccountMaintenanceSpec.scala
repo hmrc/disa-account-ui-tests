@@ -18,7 +18,6 @@ package uk.gov.hmrc.ui.specs
 
 import uk.gov.hmrc.ui.pages.*
 
-
 class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
 
   Feature("Non Signatory user features") {
