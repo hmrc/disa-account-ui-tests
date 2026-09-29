@@ -123,7 +123,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       When("the user clicks on Agree and Submit  button")
       DeclarationForChangesPage.clickAgreeSubmit()
 
-      Then("the user is navigated to the Declaration for changes  page")
+      Then("the user is navigated to the Changes completed page")
       ChangesCompletedPage.verifyPageTitle(
         ChangesCompletedPage.pageTitle,
         ChangesCompletedPage.pageUrl
@@ -218,7 +218,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       When("the user clicks on Agree and Submit  button")
       DeclarationForChangesPage.clickAgreeSubmit()
 
-      Then("the user is navigated to the Declaration for changes  page")
+      Then("the user is navigated to the Changes completed  page")
       ChangesCompletedPage.verifyPageTitle(
         ChangesCompletedPage.pageTitle,
         ChangesCompletedPage.pageUrl
