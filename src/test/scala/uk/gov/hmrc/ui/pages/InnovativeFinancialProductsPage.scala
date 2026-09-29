@@ -16,9 +16,29 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object InnovativeFinancialProductsPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/innovative-financial-products"
   val pageTitle: String =
-    "Which types of innovative finance products will your organisation offer? - Organisation details - Manage ISAs - GOV.UK"
+    "Which types of innovative finance products will your organisation offer? - Manage ISAs - GOV.UK"
 
+  private val P2P36HCheckBox: By         = By.id("value_0")
+  private val P2P36HPlatformCheckBox: By = By.id("value_1")
+  private val CrowdFundedCheckBox: By    = By.id("value_2")
+  private val LTAsCheckBox: By           = By.id("value_3")
+
+  def selectFinancialProductsCheckBox(): Unit = {
+
+    selectCheckbox(P2P36HCheckBox)
+    selectCheckbox(CrowdFundedCheckBox)
+
+  }
+
+  def unSelectFinancialProductsCheckBox(): Unit = {
+
+    selectCheckbox(P2P36HPlatformCheckBox)
+    selectCheckbox(LTAsCheckBox)
+
+  }
 }

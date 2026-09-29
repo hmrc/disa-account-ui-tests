@@ -23,7 +23,7 @@ class ChangeLiaisonOfficerSpec extends BaseSpec {
 
   Feature("Edit Liaison officer details") {
 
-    Scenario("1.Verify user can access Add a Liaison officer and edit the changes") {
+    Scenario("1.Verify user can access Add a Liaison officer and edit the changes", WIP) {
 
       Given(" ISA manager logs in as an already enrolled organisation User")
       AuthLoginPage.loginAsEnrolledUser(

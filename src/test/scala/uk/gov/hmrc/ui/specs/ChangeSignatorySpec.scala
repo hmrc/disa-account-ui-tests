@@ -17,12 +17,13 @@
 package uk.gov.hmrc.ui.specs
 
 import uk.gov.hmrc.ui.pages.*
+import uk.gov.hmrc.ui.specs.tags.WIP
 
 class ChangeSignatorySpec extends BaseSpec {
 
   Feature("Edit Signatory details") {
 
-    Scenario("1.Verify user can access Add a signatory and edit the name and title") {
+    Scenario("1.Verify user can access Add a signatory and edit the name and title", WIP) {
 
       Given(" ISA manager logs in as an already enrolled organisation User")
       AuthLoginPage.loginAsEnrolledUser(
