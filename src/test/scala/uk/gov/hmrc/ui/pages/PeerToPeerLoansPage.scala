@@ -16,8 +16,6 @@
 
 package uk.gov.hmrc.ui.pages
 
-import org.openqa.selenium.By
-
 object PeerToPeerLoansPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/peer-to-peer-loans"
   val pageTitle: String =

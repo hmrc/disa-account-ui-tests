@@ -16,8 +16,6 @@
 
 package uk.gov.hmrc.ui.pages
 
-import org.openqa.selenium.By
-
 object ChangeOfCircumstancesPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/change-of-circumstances"
   val pageTitle: String =

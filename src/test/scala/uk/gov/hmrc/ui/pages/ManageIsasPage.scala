@@ -17,10 +17,7 @@
 package uk.gov.hmrc.ui.pages
 
 object ManageIsasPage extends BasePage {
-  val pageUrl: String      = s"$baseUrl/manage-isas"
-  val pageTitle: String    = "Manage Test Isa Manager Ltd ISAs - Manage ISAs - GOV.UK"
-
-
-
+  val pageUrl: String   = s"$baseUrl/manage-isas"
+  val pageTitle: String = "Manage Test Isa Manager Ltd ISAs - Manage ISAs - GOV.UK"
 
 }

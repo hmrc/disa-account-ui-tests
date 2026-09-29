@@ -18,15 +18,16 @@ package uk.gov.hmrc.ui.specs
 
 import uk.gov.hmrc.ui.pages.*
 
-class SignatoryAccountMaintenanceSpec extends BaseSpec {
 
-  Feature("Signatory user features") {
+class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
 
-    Scenario("1.Signatory user logs and change organisation details") {
+  Feature("Non Signatory user features") {
+
+    Scenario("1.Non Signatory user logs and change organisation details") {
       Given(" ISA manager logs in as an already enrolled organisation User")
       AuthLoginPage.loginAsEnrolledUser(
         "/manage-isas",
-        "signatory@example.com",
+        "nonsignatory@example.com",
         "HMRC-DISA-ORG",
         "ZREF",
         "Z1234"
@@ -130,11 +131,11 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       ) shouldBe true
     }
 
-    Scenario("2.Signatory user logs and change product details") {
+    Scenario("2.Non Signatory user logs and change signatory details") {
       Given(" ISA manager logs in as an already enrolled organisation User")
       AuthLoginPage.loginAsEnrolledUser(
         "/manage-isas",
-        "signatory@example.com",
+        "nonsignatory@example.com",
         "HMRC-DISA-ORG",
         "ZREF",
         "Z1234"
@@ -165,151 +166,123 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
         ChangeOfCircumstancesPage.pageUrl
       ) shouldBe true
 
-      // Changing product details
+      // Changing Liaison officers details
 
-      Then("the user clicks on change link for Change products")
-      ChangeOfCircumstancesPage.clicksOnLinks("change-products")
+      Then("the user clicks on change link for Liaison officer details")
+      ChangeOfCircumstancesPage.clicksOnLinks("added-liaison-officers")
 
-      Then("Change products page is displayed")
-      ChangeProductsPage.verifyPageTitle(
-        ChangeProductsPage.pageTitle,
-        ChangeProductsPage.pageUrl
+      Then("Liaison officers added page is displayed")
+      AddedLiaisonOfficersPage.verifyPageTitle(
+        AddedLiaisonOfficersPage.pageTitle,
+        AddedLiaisonOfficersPage.pageUrl
       ) shouldBe true
 
-      Then("the user selects previously unselected products and click continue button")
-      ChangeProductsPage.selectProductsCheckBox()
-      ChangeProductsPage.clickContinue()
+      Then("the user clicks on yes radio button on Liaison officers added page and then clicks on continue button")
+      AddedLiaisonOfficersPage.clickRadioButton("Yes")
+      AddedLiaisonOfficersPage.clickContinue()
 
-      Then("the user clicks on change link for Innovative Finances ISAs type")
-      ChangeOfCircumstancesPage.clicksOnLinks("innovative-financial-products")
-
-      Then("Innovative Financial products page is displayed")
-      InnovativeFinancialProductsPage.verifyPageTitle(
-        InnovativeFinancialProductsPage.pageTitle,
-        InnovativeFinancialProductsPage.pageUrl
+      Then("the user is navigated to the 'liaison-officer-name' page")
+      LiaisonOfficerNamePage.verifyPageTitle(
+        LiaisonOfficerNamePage.pageTitle,
+        LiaisonOfficerNamePage.pageUrl
       ) shouldBe true
 
-      Then("the user selects previously unselected products and click continue button")
-      InnovativeFinancialProductsPage.selectFinancialProductsCheckBox()
-      InnovativeFinancialProductsPage.clickContinue()
+      Then("the user enters the full name and clicks on Save and continue button")
+      LiaisonOfficerNamePage.enterText("value", "Liaison One")
+      LiaisonOfficerNamePage.clickContinue()
 
-      Then("the user clicks on change link for peer to peer loans")
-      ChangeOfCircumstancesPage.clicksOnLinks("peer-to-peer-loans")
-
-      Then("the user is navigated to the 'Peer to peer loans' page")
-      PeerToPeerLoansPage.verifyPageTitle(
-        PeerToPeerLoansPage.pageTitle,
-        PeerToPeerLoansPage.pageUrl
+      Then("the user is navigated to the 'liaison-officer-email' page")
+      LiaisonOfficerEmailPage.verifyPageTitle(
+        LiaisonOfficerEmailPage.pageTitle,
+        LiaisonOfficerEmailPage.pageUrl
       ) shouldBe true
 
-      Then("the user changes platform name value and clicks continue button")
-      PeerToPeerLoansPage.enterText("value", "test platform new")
-      PeerToPeerLoansPage.clickContinue()
+      Then("the user enters the email value and clicks on Save and continue button")
+      LiaisonOfficerEmailPage.enterText("value", "loone@email.com")
+      LiaisonOfficerEmailPage.clickContinue()
 
-      When("the user clicks on continue button")
-      ChangeOfCircumstancesPage.clickContinue()
-
-      Then("the user is navigated to the Declaration for changes  page")
-      DeclarationForChangesPage.verifyPageTitle(
-        DeclarationForChangesPage.pageTitle,
-        DeclarationForChangesPage.pageUrl
+      Then("the user is navigated to the 'liaison-officer-phone-number' page")
+      LiaisonOfficerPhoneNumberPage.verifyPageTitle(
+        LiaisonOfficerPhoneNumberPage.pageTitle,
+        LiaisonOfficerPhoneNumberPage.pageUrl
       ) shouldBe true
 
-      When("the user clicks on Agree and Submit  button")
-      DeclarationForChangesPage.clickAgreeSubmit()
+      Then("the user enters the phone number and clicks on Save and continue button")
+      LiaisonOfficerPhoneNumberPage.enterText("value", "07733773372")
+      LiaisonOfficerPhoneNumberPage.clickContinue()
 
-      Then("the user is navigated to the Declaration for changes  page")
-      ChangesCompletedPage.verifyPageTitle(
-        ChangesCompletedPage.pageTitle,
-        ChangesCompletedPage.pageUrl
-      ) shouldBe true
-    }
-
-    Scenario("3.Signatory user logs and change signatory details") {
-      Given(" ISA manager logs in as an already enrolled organisation User")
-      AuthLoginPage.loginAsEnrolledUser(
-        "/manage-isas",
-        "signatory@example.com",
-        "HMRC-DISA-ORG",
-        "ZREF",
-        "Z1234"
-      )
-
-      Then("Manage ISAs page is displayed")
-      ManageIsasPage.verifyPageTitle(
-        ManageIsasPage.pageTitle,
-        ManageIsasPage.pageUrl
+      Then("the user is navigated to the 'liaison-officer-communication' page")
+      LiaisonOfficerCommunicationPage.verifyPageTitle(
+        LiaisonOfficerCommunicationPage.pageTitle,
+        LiaisonOfficerCommunicationPage.pageUrl
       ) shouldBe true
 
-      Then("the user clicks on update information link")
-      ManageIsasPage.clicksOnLinks("change-information")
+      Then("the user selects all communication modes and clicks on Save and continue button")
+      LiaisonOfficerCommunicationPage.selectCommunicationModes()
+      LiaisonOfficerCommunicationPage.clickContinue()
 
-      Then("Change information page is displayed")
-      ChangeInformationPage.verifyPageTitle(
-        ChangeInformationPage.pageTitle,
-        ChangeInformationPage.pageUrl
+      Then("the user is navigated to the 'check-added-liaison-officer' page")
+      CheckAddedLiaisonOfficerPage.verifyPageTitle(
+        CheckAddedLiaisonOfficerPage.pageTitle,
+        CheckAddedLiaisonOfficerPage.pageUrl
       ) shouldBe true
 
-      Then("the user clicks on view all information checkbox and then clicks on continue")
-      ChangeInformationPage.selectViewAllCheckBox()
-      ChangeInformationPage.clickContinue()
+      Then("the user clicks on continue button on check-added-liaison-officer' page ")
+      CheckAddedLiaisonOfficerPage.clicksOnLinks("added-liaison-officers")
 
-      Then("Change of circumstances page is displayed")
-      ChangeOfCircumstancesPage.verifyPageTitle(
-        ChangeOfCircumstancesPage.pageTitle,
-        ChangeOfCircumstancesPage.pageUrl
+      Then("the user is navigated to the 'added-liaison-officer' page")
+      AddedLiaisonOfficersPage.verifyPageTitle(
+        AddedLiaisonOfficersPage.pageTitleTwo,
+        AddedLiaisonOfficersPage.pageUrl
       ) shouldBe true
 
-      // Changing signatory details
+      When("the user clicks on remove link for the added user ")
+      CheckAddedLiaisonOfficerPage.clicksOnLinks("remove-liaison-officer")
 
-      Then("the user clicks on change link for Signatory")
-      ChangeOfCircumstancesPage.clicksOnLinks("added-signatories")
-
-      Then("Signatories added page is displayed")
-      SignatoriesAddedPage.verifyPageTitle(
-        SignatoriesAddedPage.pageTitle,
-        SignatoriesAddedPage.pageUrl
+      Then("the user is navigated to the 'remove-liaison-officer' page")
+      RemoveLiaisonOfficerPage.verifyPageTitle(
+        RemoveLiaisonOfficerPage.pageTitle,
+        RemoveLiaisonOfficerPage.pageUrl
       ) shouldBe true
 
-      Then("the user clicks on yes radio button on Signatories added page and then clicks on continue button")
-      SignatoriesAddedPage.clickRadioButton("Yes")
-      SignatoriesAddedPage.clickContinue()
+      Then("the user clicks on no radio button on 'remove-liaison-officer' page ")
+      RemoveLiaisonOfficerPage.clickRadioButton("No")
 
-      Then("the user is navigated to the 'signatory-name' page")
-      SignatoryNamePage.verifyPageTitle(SignatoryNamePage.pageTitle, SignatoryNamePage.pageUrl) shouldBe true
+      Then("the user clicks on Save and continue button on 'remove-liaison-officer' page ")
+      RemoveLiaisonOfficerPage.clickContinue()
 
-      When("the user enters the full name and clicks on continue button")
-      SignatoryNamePage.enterText("value", "Signatory One")
-      SignatoryNamePage.clickContinue()
-
-      Then("the user is navigated to the 'signatory-job-title' page")
-      SignatoryJobTitlePage.verifyPageTitle(
-        SignatoryJobTitlePage.pageTitle,
-        SignatoryJobTitlePage.pageUrl
+      Then("the user is navigated to the 'added-liaison-officer' page")
+      AddedLiaisonOfficersPage.verifyPageTitle(
+        AddedLiaisonOfficersPage.pageTitleTwo,
+        AddedLiaisonOfficersPage.pageUrl
       ) shouldBe true
 
-      When("the user enters the JobTitle value and clicks on continue button")
-      SignatoryJobTitlePage.enterText("value", "QA")
-      SignatoryJobTitlePage.clickContinue()
+      When("the user clicks on remove link for the added user ")
+      CheckAddedLiaisonOfficerPage.clicksOnLinks("remove-liaison-officer")
 
-      Then("the user is navigated to the 'check signatory details' page")
-      SignatoryCheckDetailsPage.verifyPageTitle(
-        SignatoryCheckDetailsPage.pageTitle,
-        SignatoryCheckDetailsPage.pageUrl
+      Then("the user is navigated to the 'remove-liaison-officer' page")
+      RemoveLiaisonOfficerPage.verifyPageTitle(
+        RemoveLiaisonOfficerPage.pageTitle,
+        RemoveLiaisonOfficerPage.pageUrl
       ) shouldBe true
 
-      When("the user clicks on continue button")
-      SignatoryCheckDetailsPage.clickContinue()
+      Then("the user clicks on Yes radio button on 'remove-liaison-officer' page ")
+      RemoveLiaisonOfficerPage.clickRadioButton("Yes")
 
-      Then("the user is navigated to the 'signatories added' page")
-      SignatoriesAddedPage.verifyPageTitle(
-        SignatoriesAddedPage.pageTitleTwo,
-        SignatoriesAddedPage.pageUrl
+      Then("the user clicks on Save and continue button on 'remove-liaison-officer' page ")
+      RemoveLiaisonOfficerPage.clickContinue()
+
+      Then("the user is navigated to the 'added-liaison-officer' page")
+      AddedLiaisonOfficersPage.verifyPageTitle(
+        AddedLiaisonOfficersPage.pageTitle,
+        AddedLiaisonOfficersPage.pageUrl
       ) shouldBe true
 
-      Then("the user clicks on No radio button on Signatories added page and then clicks on continue button")
-      SignatoriesAddedPage.clickRadioButton("No")
-      SignatoriesAddedPage.clickContinue()
+      Then("the user clicks on no radio button on 'added-liaison-officer' page ")
+      AddedLiaisonOfficersPage.clickRadioButton("No")
+
+      Then("the user clicks on Save and continue button on 'added-liaison-officer' page ")
+      AddedLiaisonOfficersPage.clickContinue()
 
       When("the user clicks on continue button")
       ChangeOfCircumstancesPage.clickContinue()
