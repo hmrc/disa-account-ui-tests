@@ -23,7 +23,7 @@ class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
   Feature("Non Signatory user features") {
 
     Scenario("1.Non Signatory user logs and change organisation details") {
-      Given(" ISA manager logs in as an already enrolled organisation User")
+      Given("Non Signatory user logs in")
       AuthLoginPage.loginAsEnrolledUser(
         "/manage-isas",
         "nonsignatory@example.com",
@@ -114,13 +114,13 @@ class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
       When("the user clicks on continue button")
       ChangeOfCircumstancesPage.clickContinue()
 
-      Then("the user is navigated to the Declaration for changes  page")
+      Then("the user is navigated to the Declaration for changes page")
       DeclarationForChangesPage.verifyPageTitle(
         DeclarationForChangesPage.pageTitleTwo,
         DeclarationForChangesPage.pageUrl
       ) shouldBe true
 
-      When("the user clicks on Agree and Submit  button")
+      When("the user clicks on Agree and Submit button")
       DeclarationForChangesPage.clickAgreeSubmit()
 
       Then("the user is navigated to the Changes completed page")
@@ -130,8 +130,8 @@ class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
       ) shouldBe true
     }
 
-    Scenario("2.Non Signatory user logs and change signatory details") {
-      Given(" ISA manager logs in as an already enrolled organisation User")
+    Scenario("2.Non Signatory user logs and change Liaison officers details") {
+      Given("Non Signatory user logs in")
       AuthLoginPage.loginAsEnrolledUser(
         "/manage-isas",
         "nonsignatory@example.com",

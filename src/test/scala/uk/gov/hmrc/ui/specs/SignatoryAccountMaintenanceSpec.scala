@@ -23,7 +23,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
   Feature("Signatory user features") {
 
     Scenario("1.Signatory user logs and change organisation details") {
-      Given(" ISA manager logs in as an already enrolled organisation User")
+      Given(" Signatory user logs in")
       AuthLoginPage.loginAsEnrolledUser(
         "/manage-isas",
         "signatory@example.com",
@@ -131,7 +131,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
     }
 
     Scenario("2.Signatory user logs and change product details") {
-      Given(" ISA manager logs in as an already enrolled organisation User")
+      Given(" Signatory user logs in")
       AuthLoginPage.loginAsEnrolledUser(
         "/manage-isas",
         "signatory@example.com",
@@ -206,6 +206,32 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       PeerToPeerLoansPage.enterText("value", "test platform new")
       PeerToPeerLoansPage.clickContinue()
 
+      Then("the user clicks on change link for fca platform number")
+      ChangeOfCircumstancesPage.clicksOnLinks("fca-platform-number")
+
+      Then("the user is navigated to the 'fca-platform-number' page")
+      FcaPlatformNumberPage.verifyPageTitle(
+        FcaPlatformNumberPage.pageTitle,
+        FcaPlatformNumberPage.pageUrl
+      ) shouldBe true
+
+      Then("the user changes Fca platform number value and clicks continue button")
+      FcaPlatformNumberPage.enterText("value", "1234566")
+      FcaPlatformNumberPage.clickContinue()
+
+      Then("the user clicks on change link for articles")
+      ChangeOfCircumstancesPage.clicksOnLinks("fca-articles")
+
+      Then("the user is navigated to the 'fca-articles' page")
+      FcaArticlesPage.verifyPageTitle(
+        FcaArticlesPage.pageTitle,
+        FcaArticlesPage.pageUrl
+      ) shouldBe true
+
+      Then("the user selects previously unselected articles and clicks continue button")
+      FcaArticlesPage.selectFACArticles()
+      FcaPlatformNumberPage.clickContinue()
+
       When("the user clicks on continue button")
       ChangeOfCircumstancesPage.clickContinue()
 
@@ -226,7 +252,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
     }
 
     Scenario("3.Signatory user logs and change signatory details") {
-      Given(" ISA manager logs in as an already enrolled organisation User")
+      Given(" Signatory user logs in")
       AuthLoginPage.loginAsEnrolledUser(
         "/manage-isas",
         "signatory@example.com",

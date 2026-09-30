@@ -19,6 +19,6 @@ package uk.gov.hmrc.ui.pages
 object FcaPlatformNumberPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/fca-platform-number"
   val pageTitle: String =
-    "What is the FCA, FRN of plat one? - Manage ISAs - GOV.UK"
+    "What is the FCA, FRN of test platform new? - Manage ISAs - GOV.UK"
 
 }
