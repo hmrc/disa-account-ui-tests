@@ -18,6 +18,6 @@ package uk.gov.hmrc.ui.pages
 
 object OrganisationTradingNamePage extends BasePage {
   val pageUrl: String   = s"$baseUrl/trading-name"
-  val pageTitle: String = "What is your organisation’s trading name? - Organisation details - Manage ISAs - GOV.UK"
+  val pageTitle: String = "What is your organisation’s trading name? - Manage ISAs - GOV.UK"
 
 }

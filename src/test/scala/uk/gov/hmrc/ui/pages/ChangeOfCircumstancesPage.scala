@@ -16,23 +16,9 @@
 
 package uk.gov.hmrc.ui.pages
 
-import org.openqa.selenium.By
-
-object ChangeInformationPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/change-information"
+object ChangeOfCircumstancesPage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/change-of-circumstances"
   val pageTitle: String =
-    "What would you like to change? - Manage ISAs - GOV.UK"
-
-  private val OrganisationInformationCheckBox: By    = By.id("value_0")
-  private val IsaProductInformationCheckBox: By      = By.id("value_1")
-  private val AuthorisedUsersInformationCheckBox: By = By.id("value_2")
-
-  def selectViewAllCheckBox(): Unit = {
-
-    selectCheckbox(OrganisationInformationCheckBox)
-    selectCheckbox(IsaProductInformationCheckBox)
-    selectCheckbox(AuthorisedUsersInformationCheckBox)
-
-  }
+    "Manage organisation information - Manage ISAs - GOV.UK"
 
 }

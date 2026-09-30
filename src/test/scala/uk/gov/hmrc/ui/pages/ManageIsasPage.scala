@@ -16,9 +16,8 @@
 
 package uk.gov.hmrc.ui.pages
 
-object PeerToPeerLoanPage extends BasePage {
-  val pageUrl: String   = s"$baseUrl/peer-to-peer-loans"
-  val pageTitle: String =
-    "Which platform does your organisation use to offer peer-to-peer loans? - Manage ISAs - GOV.UK"
+object ManageIsasPage extends BasePage {
+  val pageUrl: String   = s"$baseUrl/manage-isas"
+  val pageTitle: String = "Manage Test Isa Manager Ltd ISAs - Manage ISAs - GOV.UK"
 
 }

@@ -39,6 +39,8 @@ trait BasePage extends Matchers with PageObject {
   val confirmAndSaveButtonForOrgDetails: By =
     By.cssSelector("a.govuk-button[href='/obligations/enrolment/isa/task-list']")
 
+  val AgreeAndSubmitButton: By = By.cssSelector(".govuk-button")
+
   def taskStatusLocator(taskName: String): By =
     By.xpath(s"//li[.//a[normalize-space(text())='$taskName']]//div[contains(@class, 'govuk-task-list__status')]")
 
@@ -118,6 +120,9 @@ trait BasePage extends Matchers with PageObject {
 
   def clickContinue(): Unit =
     click(continueButton)
+
+  def clickAgreeSubmit(): Unit =
+    click(AgreeAndSubmitButton)
 
   def signOut(): Unit =
     click(signOutButton)

@@ -21,15 +21,15 @@ import org.openqa.selenium.By
 object FcaArticlesPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/fca-articles"
   val pageTitle: String =
-    "FCA Articles that apply to your organisation - Certificates of authority - Manage ISAs - GOV.UK"
+    "FCA Articles that apply to your organisation - Manage ISAs - GOV.UK"
 
   private val article14CheckBox: By   = By.id("value_0")
   private val article51ZACheckBox: By = By.id("value_8")
 
-  def selectFACArticlesThenClickSaveAndContinue(): Unit = {
+  def selectFACArticles(): Unit = {
     selectCheckbox(article14CheckBox)
     selectCheckbox(article51ZACheckBox)
-    clickContinue()
+
   }
 
 }

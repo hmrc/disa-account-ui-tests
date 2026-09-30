@@ -16,9 +16,31 @@
 
 package uk.gov.hmrc.ui.pages
 
+import org.openqa.selenium.By
+
 object ChangeProductsPage extends BasePage {
   val pageUrl: String   = s"$baseUrl/change-products"
-  val pageTitle: String =
-    "Change ISA products - Manage ISAs - GOV.UK"
+  val pageTitle: String = "Change ISA products - Manage ISAs - GOV.UK"
+
+  private val CashISAsCheckBox: By             = By.id("value_0")
+  private val CashJuniorCheckBox: By           = By.id("value_1")
+  private val StockAndSharesCheckBox: By       = By.id("value_2")
+  private val StockAndSharesJuniorCheckBox: By = By.id("value_2")
+  private val innovativeFinancesCheckBox: By   = By.id("value_2")
+
+  def selectProductsCheckBox(): Unit = {
+
+    selectCheckbox(CashJuniorCheckBox)
+    selectCheckbox(StockAndSharesJuniorCheckBox)
+
+  }
+
+  def unSelectProductsCheckBox(): Unit = {
+
+    selectCheckbox(CashISAsCheckBox)
+    selectCheckbox(StockAndSharesCheckBox)
+    selectCheckbox(innovativeFinancesCheckBox)
+
+  }
 
 }
