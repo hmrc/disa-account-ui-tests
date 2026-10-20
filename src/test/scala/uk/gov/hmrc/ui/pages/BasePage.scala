@@ -17,7 +17,7 @@
 package uk.gov.hmrc.ui.pages
 
 import org.openqa.selenium.support.ui.{ExpectedConditions, FluentWait, Wait}
-import org.openqa.selenium.{By, WebDriver}
+import org.openqa.selenium.{By, NoSuchElementException, StaleElementReferenceException, WebDriver}
 import org.scalatest.matchers.should.Matchers
 import uk.gov.hmrc.selenium.component.PageObject
 import uk.gov.hmrc.selenium.webdriver.Driver
@@ -78,6 +78,20 @@ trait BasePage extends Matchers with PageObject {
     .withTimeout(Duration.ofSeconds(2))
     .pollingEvery(Duration.ofMillis(200))
 
+  // PageObject's own wait doesn't ignore NoSuchElementException, so it fails on the first poll instead of waiting
+  private def clickWait: Wait[WebDriver] = new FluentWait[WebDriver](Driver.instance)
+    .withTimeout(Duration.ofSeconds(5))
+    .pollingEvery(Duration.ofMillis(200))
+    .ignoring(classOf[NoSuchElementException])
+
+  override protected def click(locator: By): Unit =
+    try clickWait.until(ExpectedConditions.presenceOfElementLocated(locator)).click()
+    catch {
+      // the page navigated between finding and clicking the element, so find it again on the new page
+      case _: StaleElementReferenceException =>
+        clickWait.until(ExpectedConditions.presenceOfElementLocated(locator)).click()
+    }
+
   def verifyPageLoaded(url: String = this.pageUrl): Unit = fluentWait.until(ExpectedConditions.urlToBe(url))
 
   def navigateTo(url: String): Unit = {
@@ -95,15 +109,12 @@ trait BasePage extends Matchers with PageObject {
   def clickOnByPartialLinkText(partialLinkText: String): Unit =
     click(By.partialLinkText(partialLinkText))
 
-  def clickOnLinks(button: String): Unit  = {
-    val locator = By.xpath("*//*[contains(@href, '$button')]")
+  def clickLinkWithHref(text: String): Unit = {
+    val locator = By.xpath(s"//*[contains(@href, '$text')]")
     click(locator)
   }
-  def clicksOnLinks(button: String): Unit = {
-    val locator = By.xpath(s"//*[contains(@href, '$button')]")
-    click(locator)
-  }
-  def clickSubmit(): Unit                 =
+
+  def clickSubmit(): Unit =
     Driver.instance.findElement(By.id("submit-top")).click()
 
   def clickRadioButton(text: String): Unit =

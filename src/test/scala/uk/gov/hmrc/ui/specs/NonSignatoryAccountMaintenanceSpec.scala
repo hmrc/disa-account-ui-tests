@@ -39,7 +39,7 @@ class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
       ) shouldBe true
 
       Then("the user clicks on update information link")
-      ManageIsasPage.clicksOnLinks("change-information")
+      ManageIsasPage.clickLinkWithHref("change-information")
 
       Then("Change information page is displayed")
       ChangeInformationPage.verifyPageTitle(
@@ -60,7 +60,7 @@ class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
       // Changing org details
 
       Then("the user clicks on change link for Change Trading name")
-      ChangeOfCircumstancesPage.clicksOnLinks("trading-name")
+      ChangeOfCircumstancesPage.clickLinkWithHref("trading-name")
 
       Then("Trading name page is displayed")
       OrganisationTradingNamePage.verifyPageTitle(
@@ -73,7 +73,7 @@ class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
       OrganisationTradingNamePage.clickContinue()
 
       Then("the user clicks on change link for Organisation Address")
-      ChangeOfCircumstancesPage.clicksOnLinks("enter-your-organisation-address")
+      ChangeOfCircumstancesPage.clickLinkWithHref("enter-your-organisation-address")
 
       Then("Enter your organisation’s address page is displayed")
       EnterYourOrganisationAddressPage.verifyPageTitle(
@@ -89,7 +89,7 @@ class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
       EnterYourOrganisationAddressPage.clickContinue()
 
       Then("the user clicks on change link for Organisation email")
-      ChangeOfCircumstancesPage.clicksOnLinks("organisation-email-address")
+      ChangeOfCircumstancesPage.clickLinkWithHref("organisation-email-address")
 
       Then("the user is navigated to the 'Organisation email address' page")
       OrganisationEmailPage.verifyPageTitle(
@@ -147,7 +147,7 @@ class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
       ) shouldBe true
 
       Then("the user clicks on update information link")
-      ManageIsasPage.clicksOnLinks("change-information")
+      ManageIsasPage.clickLinkWithHref("change-information")
 
       Then("Change information page is displayed")
       ChangeInformationPage.verifyPageTitle(
@@ -168,7 +168,7 @@ class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
       // Changing Liaison officers details
 
       Then("the user clicks on change link for Liaison officer details")
-      ChangeOfCircumstancesPage.clicksOnLinks("added-liaison-officers")
+      ChangeOfCircumstancesPage.clickLinkWithHref("added-liaison-officers")
 
       Then("Liaison officers added page is displayed")
       AddedLiaisonOfficersPage.verifyPageTitle(
@@ -227,7 +227,7 @@ class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
       ) shouldBe true
 
       Then("the user clicks on continue button on check-added-liaison-officer' page ")
-      CheckAddedLiaisonOfficerPage.clicksOnLinks("added-liaison-officers")
+      CheckAddedLiaisonOfficerPage.clickLinkWithHref("added-liaison-officers")
 
       Then("the user is navigated to the 'added-liaison-officer' page")
       AddedLiaisonOfficersPage.verifyPageTitle(
@@ -236,7 +236,7 @@ class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
       ) shouldBe true
 
       When("the user clicks on remove link for the added user ")
-      CheckAddedLiaisonOfficerPage.clicksOnLinks("remove-liaison-officer")
+      CheckAddedLiaisonOfficerPage.clickLinkWithHref("remove-liaison-officer")
 
       Then("the user is navigated to the 'remove-liaison-officer' page")
       RemoveLiaisonOfficerPage.verifyPageTitle(
@@ -257,7 +257,7 @@ class NonSignatoryAccountMaintenanceSpec extends BaseSpec {
       ) shouldBe true
 
       When("the user clicks on remove link for the added user ")
-      CheckAddedLiaisonOfficerPage.clicksOnLinks("remove-liaison-officer")
+      CheckAddedLiaisonOfficerPage.clickLinkWithHref("remove-liaison-officer")
 
       Then("the user is navigated to the 'remove-liaison-officer' page")
       RemoveLiaisonOfficerPage.verifyPageTitle(
