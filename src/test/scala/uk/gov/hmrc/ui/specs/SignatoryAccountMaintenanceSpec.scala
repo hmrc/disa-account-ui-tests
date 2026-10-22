@@ -39,7 +39,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       ) shouldBe true
 
       Then("the user clicks on update information link")
-      ManageIsasPage.clicksOnLinks("change-information")
+      ManageIsasPage.clickLinkWithHref("change-information")
 
       Then("Change information page is displayed")
       ChangeInformationPage.verifyPageTitle(
@@ -60,7 +60,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       // Changing org details
 
       Then("the user clicks on change link for Change Trading name")
-      ChangeOfCircumstancesPage.clicksOnLinks("trading-name")
+      ChangeOfCircumstancesPage.clickLinkWithHref("trading-name")
 
       Then("Trading name page is displayed")
       OrganisationTradingNamePage.verifyPageTitle(
@@ -73,7 +73,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       OrganisationTradingNamePage.clickContinue()
 
       Then("the user clicks on change link for Organisation Address")
-      ChangeOfCircumstancesPage.clicksOnLinks("enter-your-organisation-address")
+      ChangeOfCircumstancesPage.clickLinkWithHref("enter-your-organisation-address")
 
       Then("Enter your organisation’s address page is displayed")
       EnterYourOrganisationAddressPage.verifyPageTitle(
@@ -89,7 +89,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       EnterYourOrganisationAddressPage.clickContinue()
 
       Then("the user clicks on change link for Organisation email")
-      ChangeOfCircumstancesPage.clicksOnLinks("organisation-email-address")
+      ChangeOfCircumstancesPage.clickLinkWithHref("organisation-email-address")
 
       Then("the user is navigated to the 'Organisation email address' page")
       OrganisationEmailPage.verifyPageTitle(
@@ -147,7 +147,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       ) shouldBe true
 
       Then("the user clicks on update information link")
-      ManageIsasPage.clicksOnLinks("change-information")
+      ManageIsasPage.clickLinkWithHref("change-information")
 
       Then("Change information page is displayed")
       ChangeInformationPage.verifyPageTitle(
@@ -168,7 +168,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       // Changing product details
 
       Then("the user clicks on change link for Change products")
-      ChangeOfCircumstancesPage.clicksOnLinks("change-products")
+      ChangeOfCircumstancesPage.clickLinkWithHref("change-products")
 
       Then("Change products page is displayed")
       ChangeProductsPage.verifyPageTitle(
@@ -181,7 +181,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       ChangeProductsPage.clickContinue()
 
       Then("the user clicks on change link for Innovative Finances ISAs type")
-      ChangeOfCircumstancesPage.clicksOnLinks("innovative-financial-products")
+      ChangeOfCircumstancesPage.clickLinkWithHref("innovative-financial-products")
 
       Then("Innovative Financial products page is displayed")
       InnovativeFinancialProductsPage.verifyPageTitle(
@@ -194,7 +194,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       InnovativeFinancialProductsPage.clickContinue()
 
       Then("the user clicks on change link for peer to peer loans")
-      ChangeOfCircumstancesPage.clicksOnLinks("peer-to-peer-loans")
+      ChangeOfCircumstancesPage.clickLinkWithHref("peer-to-peer-loans")
 
       Then("the user is navigated to the 'Peer to peer loans' page")
       PeerToPeerLoansPage.verifyPageTitle(
@@ -207,7 +207,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       PeerToPeerLoansPage.clickContinue()
 
       Then("the user clicks on change link for fca platform number")
-      ChangeOfCircumstancesPage.clicksOnLinks("fca-platform-number")
+      ChangeOfCircumstancesPage.clickLinkWithHref("fca-platform-number")
 
       Then("the user is navigated to the 'fca-platform-number' page")
       FcaPlatformNumberPage.verifyPageTitle(
@@ -220,7 +220,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       FcaPlatformNumberPage.clickContinue()
 
       Then("the user clicks on change link for articles")
-      ChangeOfCircumstancesPage.clicksOnLinks("fca-articles")
+      ChangeOfCircumstancesPage.clickLinkWithHref("fca-articles")
 
       Then("the user is navigated to the 'fca-articles' page")
       FcaArticlesPage.verifyPageTitle(
@@ -268,7 +268,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       ) shouldBe true
 
       Then("the user clicks on update information link")
-      ManageIsasPage.clicksOnLinks("change-information")
+      ManageIsasPage.clickLinkWithHref("change-information")
 
       Then("Change information page is displayed")
       ChangeInformationPage.verifyPageTitle(
@@ -289,7 +289,7 @@ class SignatoryAccountMaintenanceSpec extends BaseSpec {
       // Changing signatory details
 
       Then("the user clicks on change link for Signatory")
-      ChangeOfCircumstancesPage.clicksOnLinks("added-signatories")
+      ChangeOfCircumstancesPage.clickLinkWithHref("added-signatories")
 
       Then("Signatories added page is displayed")
       SignatoriesAddedPage.verifyPageTitle(
